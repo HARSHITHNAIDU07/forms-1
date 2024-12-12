@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Form</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header"></div>
+
+    <!-- Form Title Section -->
+    <h1>Create a New Form</h1>
+    <label for="formTitle">Form Title:</label>
+    <input type="text" id="formTitle" name="formTitle" placeholder="Enter your form title" />
+
+    <form id="formBuilder">
+        <div id="questionContainer">
+            <!-- Dynamically add questions here -->
+        </div>
+        <button type="button" id="addQuestionButton">Add Question</button>
+        <button type="button" id="createFormButton">Create Form</button>
+    </form>
+
+    <!-- Form Preview Section -->
+    <h2>Your Form Preview:</h2>
+    <div id="formPreview">
+        <!-- Form preview will be displayed here after clicking "Create Form" -->
+    </div>
+
+    <!-- Share Form Button -->
+    <button type="button" id="shareFormButton" style="display:none;">Share Form</button>
+
+    <!-- Link to the form for sharing -->
+    <div id="shareLink" style="display:none;">
+        <label for="formLink">Copy the link to your form:</label>
+        <input type="text" id="formLink" readonly>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/form.js"></script>
+    <script>
+        loadHeader('../partials/header.html');
+        initializeFormBuilder();
+    </script>
+</body>
+</html>

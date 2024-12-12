@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Form</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div id="header"></div>
+
+    <h1>Fill Out the Form</h1>
+    <form id="responseForm">
+        <div id="formQuestions">
+            <!-- Form questions will be dynamically populated here -->
+        </div>
+        <button type="submit">Submit Response</button>
+    </form>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/form.js"></script>
+    <script>
+        loadHeader('../partials/header.html');
+        loadFormData();
+    </script>
+</body>
+</html>
