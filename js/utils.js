@@ -6,7 +6,6 @@ function loadHeader(path) {
             document.getElementById('header').innerHTML = html;
         });
 }
-
 function loadFormData() {
     // Simulate loading form questions from a database or file
     let formQuestions = [
