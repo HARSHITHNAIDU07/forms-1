@@ -22,14 +22,18 @@ document.getElementById('addQuestionButton').addEventListener('click', function(
             <label for="options">Options (comma separated)</label>
             <input type="text" name="options" placeholder="Enter options (e.g. Option 1, Option 2)" />
         </div>
+        
+        <!-- Delete Button (Bin Icon) -->
+        <button type="button" class="delete-question-btn" style="background: none; border: none; color: red; cursor: pointer;">&#128465;</button>
     `;
-    
+
+    // Add the question to the container
     questionContainer.appendChild(newQuestion);
-    
+
     // Listen for changes in question type
     const questionTypeSelect = newQuestion.querySelector('select[name="type"]');
     const optionsContainer = newQuestion.querySelector('.options-container');
-    
+
     questionTypeSelect.addEventListener('change', function() {
         if (['multiple-choice', 'checkbox', 'dropdown'].includes(questionTypeSelect.value)) {
             optionsContainer.style.display = 'block';
@@ -37,7 +41,30 @@ document.getElementById('addQuestionButton').addEventListener('click', function(
             optionsContainer.style.display = 'none';
         }
     });
+
+    // Attach delete functionality to the bin icon
+    const deleteButton = newQuestion.querySelector('.delete-question-btn');
+    deleteButton.addEventListener('click', function() {
+        questionContainer.removeChild(newQuestion); // Remove the question from the container
+        checkFormCompletion(); // Check if there are any questions after deletion
+    });
+
+    // Check if the form has at least one question after adding
+    checkFormCompletion();
 });
+
+// Function to check if there are any questions in the form
+function checkFormCompletion() {
+    let questionCount = document.querySelectorAll('.form-group').length;
+    let createFormButton = document.getElementById('createFormButton');
+    
+    // Enable or disable the "Create Form" button
+    if (questionCount > 0) {
+        createFormButton.disabled = false; // Enable the button
+    } else {
+        createFormButton.disabled = true; // Disable the button
+    }
+}
 
 // Function to handle form creation and rendering a preview of the form
 document.getElementById('createFormButton').addEventListener('click', function() {
@@ -163,5 +190,6 @@ document.getElementById('shareFormButton').addEventListener('click', function() 
 
 // Initialize the form builder
 function initializeFormBuilder() {
-    // Any additional initialization if required
+    // Disable the "Create Form" button initially
+    document.getElementById('createFormButton').disabled = true;
 }

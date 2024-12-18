@@ -1,6 +1,17 @@
+/* Style the delete button */
+.delete-question-btn {
+    font-size: 1.5rem;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.delete-question-btn:hover {
+    color: #d32f2f; /* Red color on hover */
+}
+
 /* General styles */
 html, body {
-    background-color: #53158e; /* Violet background */
+    background-color: #4d005c; /* Violet background */
     font-family: Roboto, Arial, sans-serif;
     color: white;
     height: 100%;
